@@ -21,10 +21,8 @@ class Book {
   @Column()
   inventory: string;
 
-
   @CreateDateColumn()
   created_at: Date;
-
 
   constructor(){
     if (!this.id) {

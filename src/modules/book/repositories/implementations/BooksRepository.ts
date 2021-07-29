@@ -24,6 +24,11 @@ class BooksRepository implements IBooksRepository {
     await this.repository.save(book);
   }
 
+  async list(): Promise<Book[]>{
+    const books = await this.repository.find();
+    return books;
+  }
+
   async findBySBN(SBN: number): Promise<Book> {
     const book = await this.repository.findOne({ SBN });
     return book;
