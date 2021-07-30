@@ -12,21 +12,27 @@
 ### Docker
 
 - Todo o projeto está rodando em Docker.
-- Verso do docker 20.10.6
+- Versão do docker 20.10.6
 - Versão do docker-compose 1.29.2
 
-#### Rodar Projeto
+#### Executar Projeto
 
-```bash
-docker-compose up -d
-```
+Instalar as dependencias do projeto
 ```bash
 npm install
 ou 
 yarn
 ```
+Comando para executar o projeto em docker que vai está rodando o Banco de dados Postgres e Aplicação Book
+```bash
+docker-compose up -d
+```
+Rodar a migration para criar a tabela book no banco
 ```bash
 npm run typeorm migration:run
 ou 
 yarn typeorm migration:run
 ```
+Obs: Caso esteja usando Windows e de problema para rodar aplicação use esse link para resolver o problema: https://www.programmersought.com/article/48267850072/
+
+- Apenas para resolver o problema de compartilhamento de arquivo, selecionando um local para o compartilhamento. 
