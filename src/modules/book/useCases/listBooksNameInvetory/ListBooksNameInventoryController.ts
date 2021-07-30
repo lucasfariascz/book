@@ -6,9 +6,9 @@ import { ListBooksNameInventoryUseCase } from "./ListBooksNameInventoryUseCase";
 class ListBooksNameInventoryController {
   async handle(request: Request, response: Response): Promise<Response> {
     const { paginate } = request.query;
-    
-    const listBooksUseCase = container.resolve(ListBooksNameInventoryUseCase);
-    const all = await listBooksUseCase.execute({ paginate });
+
+    const listBooksNameInventoryUseCase = container.resolve(ListBooksNameInventoryUseCase);
+    const all = await listBooksNameInventoryUseCase.execute({ paginate });
 
     return response.json(all);
   }
