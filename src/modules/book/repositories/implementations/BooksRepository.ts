@@ -38,7 +38,6 @@ class BooksRepository implements IBooksRepository {
 
   async findById(id: string): Promise<Book> {
     const book = await this.repository.findOneOrFail(id);
-    console.log("Testesteste: " + book.id);
     return book;
   }
 
@@ -51,6 +50,11 @@ class BooksRepository implements IBooksRepository {
       .setParameters({ id })
       .execute();
   }
+
+  async delete(id: string): Promise<void> {
+    await this.repository.delete(id);
+  }
+
 }
 
 export { BooksRepository };
