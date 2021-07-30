@@ -1,11 +1,7 @@
 import { inject, injectable } from "tsyringe";
-import { IBooksRepository } from "../../repositories/IBooksRepository";
 
-interface IRequest {
-  name: string;
-  description: string;
-  author: string;
-}
+import { IUpdateBookDTO } from "../../dtos/IUpdateBookDTO";
+import { IBooksRepository } from "../../repositories/IBooksRepository";
 
 @injectable()
 class UpdateBookUseCase {
@@ -15,13 +11,13 @@ class UpdateBookUseCase {
     private booksRepository: IBooksRepository
   ){}
 
-  async execute(id: string, { name, description, author }: IRequest): Promise<void>{
+  async execute(id: string, { name, description, author, inventory }: IUpdateBookDTO): Promise<void>{
     const book = await this.booksRepository.findById(id);
     if(!book.id){
       throw new Error("Book already not exists!");
     }
 
-    await this.booksRepository.update(id, { name, description, author });
+    await this.booksRepository.update(id, { name, description, author, inventory });
   }
 }
 

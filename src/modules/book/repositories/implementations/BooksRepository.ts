@@ -41,11 +41,11 @@ class BooksRepository implements IBooksRepository {
     return book;
   }
 
-  async update(id: string, { author, description, name }: IUpdateBookDTO): Promise<void> {
+  async update(id: string, { author, description, name, inventory }: IUpdateBookDTO): Promise<void> {
     await this.repository
       .createQueryBuilder()
       .update()
-      .set({author, description, name})
+      .set({author, description, name, inventory })
       .where("id = :id")
       .setParameters({ id })
       .execute();
