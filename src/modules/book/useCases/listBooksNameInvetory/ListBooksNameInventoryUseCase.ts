@@ -4,7 +4,7 @@ import { Book } from "../../entities/Book";
 import { IBooksRepository } from "../../repositories/IBooksRepository";
 
 @injectable()
-class ListBooksNameInvetoryUseCase {
+class ListBooksNameInventoryUseCase {
   constructor(
     @inject("BooksRepository")
     private bookRepository: IBooksRepository
@@ -26,4 +26,4 @@ class ListBooksNameInvetoryUseCase {
   }
 }
 
-export {  ListBooksNameInvetoryUseCase };
+export {  ListBooksNameInventoryUseCase };
