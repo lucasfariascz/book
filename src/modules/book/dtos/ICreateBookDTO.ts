@@ -3,5 +3,5 @@ export interface ICreateBookDTO {
   name: string;
   description: string;
   author: string;
-  inventory: string;
+  inventory: number;
 }

@@ -1,13 +1,13 @@
 import { Router } from "express";
 
 import { CreateBookController } from "../modules/book/useCases/createBook/CreateBookController";
-import { ListBooksController } from "../modules/book/useCases/listBooks/ListBooksController";
+import { ListBooksNameInvetoryController } from "../modules/book/useCases/listBooksNameInvetory/listBooksNameInvetoryController";
 import { UpdateBookController } from "../modules/book/useCases/updateBook/UpdateBookController";
 import { DeleteBookController } from "../modules/book/useCases/deleteBook/DeleteBookController";
 
 const booksRoutes = Router();
 
-const listBooksController = new ListBooksController();
+const listBooksController = new ListBooksNameInvetoryController();
 const updateBookController = new UpdateBookController();
 const createBookController = new CreateBookController();
 const deleteBookController = new DeleteBookController();

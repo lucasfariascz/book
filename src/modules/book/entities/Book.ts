@@ -19,7 +19,7 @@ class Book {
   author: string;
 
   @Column()
-  inventory: string;
+  inventory: number;
 
   @CreateDateColumn()
   created_at: Date;
