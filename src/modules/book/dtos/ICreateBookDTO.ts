@@ -1,5 +1,5 @@
 export interface ICreateBookDTO {
-  SBN: number;
+  SBN?: number;
   name: string;
   description: string;
   author: string;

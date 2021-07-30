@@ -1,7 +1,9 @@
+import { IBooksRepository } from "../IBooksRepository";
+
 import { Book } from "../../entities/Book";
 
 import { ICreateBookDTO } from "../../dtos/ICreateBookDTO";
-import { IBooksRepository } from "../IBooksRepository";
+import { IUpdateBookDTO } from "../../dtos/IUpdateBookDTO";
 import { getRepository, Repository } from "typeorm";
 
 class BooksRepository implements IBooksRepository {
@@ -34,6 +36,21 @@ class BooksRepository implements IBooksRepository {
     return book;
   }
 
+  async findById(id: string): Promise<Book> {
+    const book = await this.repository.findOneOrFail(id);
+    console.log("Testesteste: " + book.id);
+    return book;
+  }
+
+  async update(id: string, { author, description, name }: IUpdateBookDTO): Promise<void> {
+    await this.repository
+      .createQueryBuilder()
+      .update()
+      .set({author, description, name})
+      .where("id = :id")
+      .setParameters({ id })
+      .execute();
+  }
 }
 
 export { BooksRepository };
